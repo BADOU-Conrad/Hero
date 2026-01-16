@@ -1,0 +1,344 @@
+/* ===========================================
+   VARIABLES CSS
+   =========================================== */
+:root {
+    /* Palette de couleurs naturelles et chaleureuses */
+    --color-primary: #7A9B76;
+    --color-primary-light: #A4C3A0;
+    --color-primary-dark: #5A7A56;
+    --color-secondary: #D4C5B0;
+    --color-secondary-light: #E8DDD0;
+    --color-bg-light: #F8F5F1;
+    --color-white: #FDFDFB;
+    --color-text: #3A3A3A;
+    --color-text-light: #6B6B6B;
+    
+    /* Typographie */
+    --font-primary: 'Inter', sans-serif;
+    --font-heading: 'Libre Baskerville', serif;
+    
+    /* Transitions */
+    --transition: all 0.3s ease;
+}
+
+/* ===========================================
+   BASE & TYPOGRAPHIE
+   =========================================== */
+body {
+    font-family: var(--font-primary);
+    color: var(--color-text);
+    background-color: var(--color-white);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-text);
+}
+
+.bg-light {
+    background-color: var(--color-bg-light) !important;
+}
+
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Text justify */
+.text-justify {
+    text-align: justify;
+    text-align-last: left;
+}
+
+/* ===========================================
+   HERO SECTION
+   =========================================== */
+.hero-section {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
+    color: var(--color-white);
+    padding: 6rem 2rem 8rem;
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-title {
+    color: var(--color-white);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+}
+
+.hero-subtitle {
+    color: var(--color-white);
+    font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+    opacity: 0.95;
+    font-weight: 300;
+}
+
+.hero-intro {
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+.hero-intro p {
+    color: var(--color-white);
+    font-size: 1.125rem;
+}
+
+.hero-wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.hero-wave svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 120px;
+}
+
+/* ===========================================
+   BOUTONS CTA
+   =========================================== */
+.cta-button {
+    font-weight: 600;
+    border-radius: 50px;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    text-transform: none;
+    letter-spacing: 0.3px;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary {
+    background-color: var(--color-white);
+    color: var(--color-primary-dark);
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-secondary-light);
+    color: var(--color-primary-dark);
+}
+
+/* ===========================================
+   SECTIONS
+   =========================================== */
+.section-title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    color: var(--color-primary-dark);
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+    margin: 1rem auto 0;
+    border-radius: 2px;
+}
+
+/* ===========================================
+   ÉTAPES (Comment ça fonctionne)
+   =========================================== */
+.step-card {
+    transition: var(--transition);
+    background: var(--color-white);
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.step-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12) !important;
+}
+
+.step-number {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary));
+    color: var(--color-white);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    box-shadow: 0 4px 15px rgba(122, 155, 118, 0.3);
+}
+
+.step-text {
+    font-size: 1.125rem;
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+/* ===========================================
+   SECTION CADRE
+   =========================================== */
+.section-cadre {
+    background: linear-gradient(to bottom, var(--color-white), var(--color-bg-light));
+}
+
+.cadre-card {
+    background: linear-gradient(135deg, #ffffff, var(--color-bg-light));
+    border-left: 5px solid var(--color-primary) !important;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.cadre-card p {
+    line-height: 1.8;
+}
+
+/* ===========================================
+   VALEURS
+   =========================================== */
+.valeur-badge {
+    background: linear-gradient(135deg, var(--color-white), var(--color-secondary-light));
+    padding: 1.25rem;
+    border-radius: 1rem;
+    text-align: center;
+    font-weight: 600;
+    color: var(--color-primary-dark);
+    border: 2px solid var(--color-primary-light);
+    transition: var(--transition);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.valeur-badge:hover {
+    background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary));
+    color: var(--color-white);
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(122, 155, 118, 0.3);
+}
+
+.valeur-badge i {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+/* ===========================================
+   FOOTER
+   =========================================== */
+.footer-section {
+    background-color: var(--color-text);
+    color: var(--color-white);
+}
+
+.footer-section .alert-warning {
+    background-color: rgba(255, 193, 7, 0.15);
+    color: #FFC107;
+    border-left: 4px solid #FFC107;
+}
+
+.footer-section .alert-warning strong {
+    color: #FFD54F;
+}
+
+/* ===========================================
+   ANIMATIONS
+   =========================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===========================================
+   RESPONSIVE
+   =========================================== */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 4rem 1.5rem 6rem;
+        min-height: auto;
+    }
+    
+    .hero-wave svg {
+        height: 80px;
+    }
+    
+    .step-number {
+        width: 60px;
+        height: 60px;
+        font-size: 1.75rem;
+    }
+    
+    .valeur-badge {
+        padding: 1rem;
+    }
+    
+    .text-justify {
+        text-align: left;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section {
+        padding: 3rem 1rem 5rem;
+    }
+    
+    .cta-button {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+/* ===========================================
+   ACCESSIBILITÉ & UX
+   =========================================== */
+/* Focus visible pour accessibilité */
+a:focus, button:focus {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Amélioration de la lisibilité */
+p {
+    margin-bottom: 1rem;
+}
+
+/* Cards Bootstrap personnalisées */
+.card {
+    transition: var(--transition);
+}
+
+/* Bootstrap overrides pour harmonie */
+.btn-lg {
+    font-size: 1.125rem;
+}
+
+/* Icônes Bootstrap */
+.bi {
+    vertical-align: middle;
+}
+
+/* Scroll smooth */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
