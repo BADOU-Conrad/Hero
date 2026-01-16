@@ -2,7 +2,7 @@
 // CONFIGURATION TELEGRAM
 // ===========================================
 // ⚠️ IMPORTANT : Remplacez par votre lien Telegram réel
-const TELEGRAM_LINK = 'https://t.me/VOTRE_USERNAME';
+const TELEGRAM_LINK = 'https://t.me/+22969357887';
 
 // ===========================================
 // INITIALISATION AOS (Animation On Scroll)
