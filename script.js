@@ -1,8 +1,8 @@
 // ===========================================
-// CONFIGURATION TELEGRAM
+// CONFIGURATION WHATSAPP
 // ===========================================
-// ⚠️ IMPORTANT : Remplacez par votre lien Telegram réel
-const TELEGRAM_LINK = 'https://t.me/+22969357887';
+// ⚠️ IMPORTANT : Remplacez par votre numéro WhatsApp réel
+const WHATSAPP_NUMBER = '+2290147370010';
 
 // ===========================================
 // INITIALISATION AOS (Animation On Scroll)
@@ -17,20 +17,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     // ===========================================
-    // GESTION DES BOUTONS TELEGRAM
+    // GESTION DES BOUTONS WHATSAPP
     // ===========================================
-    const telegramButtons = document.querySelectorAll('[data-telegram]');
+    const whatsappButtons = document.querySelectorAll('[data-whatsapp]');
     
-    telegramButtons.forEach(button => {
+    whatsappButtons.forEach(button => {
         button.addEventListener('click', (e) => {
             e.preventDefault();
             
-            // Ouvrir Telegram dans un nouvel onglet
-            window.open(TELEGRAM_LINK, '_blank', 'noopener,noreferrer');
+            // Créer le lien WhatsApp
+            const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER.replace(/[^0-9]/g, '')}`;
+            
+            // Ouvrir WhatsApp dans un nouvel onglet
+            window.open(whatsappLink, '_blank', 'noopener,noreferrer');
             
             // Feedback visuel
             const originalText = button.innerHTML;
-            button.innerHTML = '<i class="bi bi-check-circle me-2"></i>Ouverture de Telegram...';
+            button.innerHTML = '<i class="bi bi-check-circle me-2"></i>Ouverture de WhatsApp...';
             button.classList.add('disabled');
             
             setTimeout(() => {
@@ -47,8 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
             
-            // Ne pas bloquer les boutons Telegram
-            if (this.hasAttribute('data-telegram') || href === '#') {
+            // Ne pas bloquer les boutons WhatsApp
+            if (this.hasAttribute('data-whatsapp') || href === '#') {
                 return;
             }
             
@@ -84,8 +87,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const CLICK_THROTTLE = 1500; // 1.5 secondes entre chaque clic
     
     document.addEventListener('click', (e) => {
-        const telegramButton = e.target.closest('[data-telegram]');
-        if (telegramButton) {
+        const whatsappButton = e.target.closest('[data-whatsapp]');
+        if (whatsappButton) {
             const now = Date.now();
             if (now - lastClickTime < CLICK_THROTTLE) {
                 e.preventDefault();
@@ -130,21 +133,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // CONSOLE LOG POUR DÉVELOPPEUR
     // ===========================================
     console.log('%c� Espace d\'écoute bienveillante', 'color: #B19CD9; font-size: 20px; font-weight: bold;');
-    console.log('%c⚠️ N\'oubliez pas de configurer le lien Telegram dans script.js', 'color: #D4C5F9; font-size: 14px;');
-    console.log('%c📱 Lien actuel : ' + TELEGRAM_LINK, 'color: #6B6B6B; font-size: 12px;');
+    console.log('%c⚠️ N\'oubliez pas de configurer le numéro WhatsApp dans script.js', 'color: #D4C5F9; font-size: 14px;');
+    console.log('%c📱 Numéro actuel : ' + WHATSAPP_NUMBER, 'color: #6B6B6B; font-size: 12px;');
     
     // ===========================================
     // VÉRIFICATION DE LA CONFIGURATION
     // ===========================================
-    if (TELEGRAM_LINK === 'https://t.me/VOTRE_USERNAME') {
+    if (WHATSAPP_NUMBER === 'VOTRE_NUMERO') {
         // Afficher un avertissement discret pour le développeur
-        console.warn('⚠️ Le lien Telegram n\'a pas encore été configuré. Veuillez modifier script.js');
+        console.warn('⚠️ Le numéro WhatsApp n\'a pas encore été configuré. Veuillez modifier script.js');
         
         // Optionnel : ajouter un indicateur visuel temporaire
-        const buttons = document.querySelectorAll('[data-telegram]');
+        const buttons = document.querySelectorAll('[data-whatsapp]');
         buttons.forEach(btn => {
             btn.style.cursor = 'not-allowed';
-            btn.title = 'Veuillez configurer le lien Telegram dans script.js';
+            btn.title = 'Veuillez configurer le numéro WhatsApp dans script.js';
         });
     }
 });
