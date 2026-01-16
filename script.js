@@ -129,8 +129,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // ===========================================
     // CONSOLE LOG POUR DÉVELOPPEUR
     // ===========================================
-    console.log('%c🌿 Espace d\'écoute bienveillante', 'color: #7A9B76; font-size: 20px; font-weight: bold;');
-    console.log('%c⚠️ N\'oubliez pas de configurer le lien Telegram dans script.js', 'color: #FFC107; font-size: 14px;');
+    console.log('%c� Espace d\'écoute bienveillante', 'color: #B19CD9; font-size: 20px; font-weight: bold;');
+    console.log('%c⚠️ N\'oubliez pas de configurer le lien Telegram dans script.js', 'color: #D4C5F9; font-size: 14px;');
     console.log('%c📱 Lien actuel : ' + TELEGRAM_LINK, 'color: #6B6B6B; font-size: 12px;');
     
     // ===========================================
