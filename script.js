@@ -5,16 +5,9 @@
 const WHATSAPP_NUMBER = '+2290147370010';
 
 // ===========================================
-// INITIALISATION AOS (Animation On Scroll)
+// INITIALISATION
 // ===========================================
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialiser AOS pour les animations au scroll
-    AOS.init({
-        duration: 800,
-        easing: 'ease-out-cubic',
-        once: true,
-        offset: 100
-    });
     
     // ===========================================
     // GESTION DES BOUTONS WHATSAPP
@@ -33,12 +26,14 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Feedback visuel
             const originalText = button.innerHTML;
-            button.innerHTML = '<i class="bi bi-check-circle me-2"></i>Ouverture de WhatsApp...';
-            button.classList.add('disabled');
+            button.innerHTML = '<span class="material-symbols-outlined" style="font-size: 1rem; vertical-align: middle;">check_circle</span> Ouverture de WhatsApp...';
+            button.style.opacity = '0.7';
+            button.style.pointerEvents = 'none';
             
             setTimeout(() => {
                 button.innerHTML = originalText;
-                button.classList.remove('disabled');
+                button.style.opacity = '1';
+                button.style.pointerEvents = 'auto';
             }, 2000);
         });
     });
@@ -69,15 +64,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // ===========================================
     // ANIMATION DES CARTES AU SURVOL
     // ===========================================
-    const cards = document.querySelectorAll('.card');
+    const cards = document.querySelectorAll('.card, [class*="rounded-lg"]');
     cards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-5px)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-        });
+        // Vérifier que c'est bien un élément cliquable
+        if (card.matches('.bg-white, .dark\\:bg-slate-800')) {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+                this.style.transition = 'transform 0.3s ease';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        }
     });
     
     // ===========================================
@@ -102,13 +101,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // ===========================================
     // EFFET DE PARALLAXE SUBTIL SUR LE HERO
     // ===========================================
-    const hero = document.querySelector('.hero-section');
+    const hero = document.querySelector('section');
     if (hero) {
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
-            const parallax = scrolled * 0.5;
-            hero.style.transform = `translateY(${parallax}px)`;
-            hero.style.opacity = 1 - (scrolled / 700);
+            const parallax = scrolled * 0.3;
+            if (scrolled < 500) {
+                hero.style.transform = `translateY(${parallax}px)`;
+                hero.style.opacity = Math.max(0.3, 1 - (scrolled / 700));
+                hero.style.transition = 'transform 0.1s ease-out';
+            }
         });
     }
     
